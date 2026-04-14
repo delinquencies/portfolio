@@ -546,7 +546,7 @@ nav {
 
 /* Melanie Diaz: anchor art to the card frame (not only the inner strip) */
 .project-card__art--melanie {
-  position: static;
+  position: relative;
   min-height: 220px;
   padding: 4px 8px 0 10px;
 }
@@ -556,48 +556,21 @@ nav {
   z-index: 3;
   left: 50%;
   right: auto;
-  top: 36%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -52%);
   width: min(88%, 260px);
   max-height: 220px;
   margin: 0;
   padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
   line-height: 0;
-  border-radius: 8px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
-  transition: box-shadow 0.35s ease, transform 0.45s cubic-bezier(0.34, 1, 0.64, 1);
-}
-
-.melanie-mdiaz img {
   display: block;
-  width: 100%;
   height: auto;
-  max-height: 220px;
   object-fit: contain;
   border-radius: 8px;
-  opacity: 0.38;
-  transition: opacity 0.4s ease;
-}
-
-.melanie-mdiaz:hover img {
-  opacity: 0.55;
-}
-
-.melanie-mdiaz.is-revealed img,
-.melanie-mdiaz.is-revealed:hover img {
   opacity: 1;
-}
-
-.melanie-mdiaz.is-revealed {
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
-}
-
-.melanie-mdiaz:focus-visible {
-  outline: 2px solid var(--card-accent);
-  outline-offset: 3px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  transition: transform 0.45s cubic-bezier(0.34, 1, 0.64, 1);
+  pointer-events: none;
 }
 
 /* Break the picture plane: sit high + left, slightly rotated, like leaning out of the box */
@@ -625,7 +598,7 @@ nav {
 
 /*
  * Shears: match the bottle art framing on the other cards so the Melanie card
- * stays visually aligned while still allowing the preview toggle to sit above it.
+ * stays visually aligned while the mdiaz preview sits above it.
  */
 .project-card__art--melanie .card-img--melanie-bg {
   position: relative;
@@ -642,30 +615,13 @@ nav {
   transition: transform 0.45s cubic-bezier(0.34, 1, 0.64, 1), filter 0.35s ease;
 }
 
-/* Card hover: nudge only while preview is closed */
-.project-card--p1:hover
-  .project-card__art--melanie:not(:has(.melanie-mdiaz.is-revealed))
-  .card-img--melanie-bg {
+/* Card hover: nudge shears image like other cards */
+.project-card--p1:hover .project-card__art--melanie .card-img--melanie-bg {
   transform: rotate(-1deg) translate(4px, -10px) scale(1.04);
 }
-
-/* Preview open: shears tuck aside — second click restores corner pose */
-.project-card__art--melanie:has(.melanie-mdiaz.is-revealed) .card-img--melanie-bg {
-  transform: rotate(4deg) translate(24px, 18px) scale(0.9);
-}
-
-.project-card__art--melanie:has(.melanie-mdiaz.is-revealed) .melanie-mdiaz {
-  transform: translate(-50%, -10px);
-  transition: transform 0.45s cubic-bezier(0.34, 1, 0.64, 1), box-shadow 0.35s ease;
-}
-
-.project-card--p1:hover .project-card__art--melanie:has(.melanie-mdiaz.is-revealed) .card-img--melanie-bg {
-  transform: rotate(6deg) translate(26px, 14px) scale(0.9);
-}
-
-/* mdiaz: lift on card hover only when preview is dimmed */
-.project-card--p1:hover .melanie-mdiaz:not(.is-revealed) {
-  transform: translate(-50%, -4px);
+/* mdiaz: subtle lift on card hover, matching card behavior */
+.project-card--p1:hover .melanie-mdiaz {
+  transform: translate(-50%, -55%);
 }
 
 /* Dark tinted panels + accent (full-bleed color like the original cards) */
@@ -1658,35 +1614,21 @@ footer {
     transform-origin: 50% 65%;
   }
 
-  .project-card--p1:hover
-    .project-card__art--melanie:not(:has(.melanie-mdiaz.is-revealed))
-    .card-img--melanie-bg {
+  .project-card--p1:hover .project-card__art--melanie .card-img--melanie-bg {
     transform: rotate(-1deg) translate(2px, -8px) scale(1.03);
   }
 
-  .project-card__art--melanie:has(.melanie-mdiaz.is-revealed) .card-img--melanie-bg {
-    transform: rotate(4deg) translate(18px, 12px) scale(0.9);
-  }
-
-  .project-card__art--melanie:has(.melanie-mdiaz.is-revealed) .melanie-mdiaz {
-    transform: translate(-50%, -8px);
-  }
-
   .melanie-mdiaz {
-    width: min(92%, 240px);
-    max-height: 190px;
-    top: 40%;
+    width: min(90%, 230px);
+    max-height: 188px;
+    top: 50%;
     left: 50%;
     right: auto;
-    transform: translateX(-50%);
+    transform: translate(-50%, -53%);
   }
 
-  .melanie-mdiaz img {
-    max-height: 190px;
-  }
-
-  .project-card--p1:hover .melanie-mdiaz:not(.is-revealed) {
-    transform: translate(-50%, -4px);
+  .project-card--p1:hover .melanie-mdiaz {
+    transform: translate(-50%, -56%);
   }
 
   .ingredients-grid {

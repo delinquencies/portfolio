@@ -157,13 +157,3 @@ if (heroImg) {
 
 pills.forEach((pill, i) => pill.addEventListener("click", () => switchFlavor(i)));
 
-/* ======================================================
-    MELANIE DIAZ CARD PREVIEW TOGGLE
-    ====================================================== */
-const melaniePreviewToggle = document.getElementById("melanieMdiazToggle");
-if (melaniePreviewToggle) {
-  melaniePreviewToggle.addEventListener("click", () => {
-    const isRevealed = melaniePreviewToggle.classList.toggle("is-revealed");
-    melaniePreviewToggle.setAttribute("aria-pressed", String(isRevealed));
-  });
-}
