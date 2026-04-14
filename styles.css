@@ -544,35 +544,6 @@ nav {
   overflow: visible;
 }
 
-/* Melanie Diaz: anchor art to the card frame (not only the inner strip) */
-.project-card__art--melanie {
-  position: relative;
-  min-height: 220px;
-  padding: 4px 8px 0 10px;
-}
-
-.melanie-mdiaz {
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  right: auto;
-  top: 50%;
-  transform: translate(-50%, -52%);
-  width: min(88%, 260px);
-  max-height: 220px;
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-  display: block;
-  height: auto;
-  object-fit: contain;
-  border-radius: 8px;
-  opacity: 1;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
-  transition: transform 0.45s cubic-bezier(0.34, 1, 0.64, 1);
-  pointer-events: none;
-}
-
 /* Break the picture plane: sit high + left, slightly rotated, like leaning out of the box */
 .card-img {
   display: block;
@@ -592,36 +563,8 @@ nav {
   filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.38));
 }
 
-.project-card:hover .card-img:not(.card-img--melanie-bg) {
+.project-card:hover .card-img {
   transform: rotate(-1deg) translate(4px, -10px) scale(1.04);
-}
-
-/*
- * Shears: match the bottle art framing on the other cards so the Melanie card
- * stays visually aligned while the mdiaz preview sits above it.
- */
-.project-card__art--melanie .card-img--melanie-bg {
-  position: relative;
-  top: -56px;
-  left: -14px;
-  z-index: 2;
-  max-height: 300px;
-  max-width: calc(100% + 20px);
-  width: auto;
-  height: auto;
-  margin: 0;
-  transform: rotate(-2.5deg);
-  transform-origin: 50% 65%;
-  transition: transform 0.45s cubic-bezier(0.34, 1, 0.64, 1), filter 0.35s ease;
-}
-
-/* Card hover: nudge shears image like other cards */
-.project-card--p1:hover .project-card__art--melanie .card-img--melanie-bg {
-  transform: rotate(-1deg) translate(4px, -10px) scale(1.04);
-}
-/* mdiaz: subtle lift on card hover, matching card behavior */
-.project-card--p1:hover .melanie-mdiaz {
-  transform: translate(-50%, -55%);
 }
 
 /* Dark tinted panels + accent (full-bleed color like the original cards) */
@@ -1603,32 +1546,6 @@ footer {
     top: -44px;
     left: -8px;
     max-height: 240px;
-  }
-
-  .project-card__art--melanie .card-img--melanie-bg {
-    top: -44px;
-    left: -8px;
-    max-height: 240px;
-    max-width: calc(100% + 16px);
-    transform: rotate(-2.5deg);
-    transform-origin: 50% 65%;
-  }
-
-  .project-card--p1:hover .project-card__art--melanie .card-img--melanie-bg {
-    transform: rotate(-1deg) translate(2px, -8px) scale(1.03);
-  }
-
-  .melanie-mdiaz {
-    width: min(90%, 230px);
-    max-height: 188px;
-    top: 50%;
-    left: 50%;
-    right: auto;
-    transform: translate(-50%, -53%);
-  }
-
-  .project-card--p1:hover .melanie-mdiaz {
-    transform: translate(-50%, -56%);
   }
 
   .ingredients-grid {
