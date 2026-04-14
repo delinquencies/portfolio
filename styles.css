@@ -552,12 +552,12 @@ nav {
 }
 
 .melanie-mdiaz {
-  position: relative;
+  position: absolute;
   z-index: 3;
   left: 50%;
   right: auto;
-  top: -64px;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -52%);
   width: min(88%, 260px);
   max-height: 220px;
   margin: 0;
@@ -621,7 +621,7 @@ nav {
 }
 /* mdiaz: subtle lift on card hover, matching card behavior */
 .project-card--p1:hover .melanie-mdiaz {
-  transform: translate(-50%, -4px);
+  transform: translate(-50%, -55%);
 }
 
 /* Dark tinted panels + accent (full-bleed color like the original cards) */
@@ -1619,16 +1619,16 @@ footer {
   }
 
   .melanie-mdiaz {
-    width: min(92%, 240px);
-    max-height: 190px;
-    top: -54px;
+    width: min(90%, 230px);
+    max-height: 188px;
+    top: 50%;
     left: 50%;
     right: auto;
-    transform: translateX(-50%);
+    transform: translate(-50%, -53%);
   }
 
   .project-card--p1:hover .melanie-mdiaz {
-    transform: translate(-50%, -4px);
+    transform: translate(-50%, -56%);
   }
 
   .ingredients-grid {
