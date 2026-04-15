@@ -1182,11 +1182,13 @@ a.card-btn {
 }
 
 .ls-features li {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: 8px 1fr;
+  align-items: start;
+  column-gap: 14px;
   font-size: 0.8rem;
   color: var(--ink-muted);
+  line-height: 1.55;
 }
 
 .ls-features li strong {
@@ -1199,6 +1201,7 @@ a.card-btn {
   border-radius: 50%;
   background: var(--ink);
   flex-shrink: 0;
+  margin-top: 0.42rem;
 }
 
 .ls-btns {
@@ -1461,6 +1464,10 @@ footer {
     gap: 40px;
   }
 
+  .ls-btns {
+    justify-content: center;
+  }
+
   footer {
     padding: 28px 20px;
   }
@@ -1568,6 +1575,18 @@ footer {
 
   .nl-btn {
     text-align: center;
+    justify-self: center;
+    width: min(260px, 100%);
+  }
+
+  .ls-features {
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .ls-features li {
+    font-size: 0.78rem;
+    line-height: 1.6;
   }
 
   footer {
