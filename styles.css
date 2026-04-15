@@ -853,14 +853,6 @@ a.card-btn {
   transform: rotate(-1.5deg) translate(2px, -10px) scale(1.08);
 }
 
-.ing-num {
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 0.82rem;
-  letter-spacing: 0.2em;
-  color: var(--ink-faint);
-  margin-bottom: 8px;
-}
-
 .ing-name {
   font-family: "Bebas Neue", sans-serif;
   font-size: 2rem;
