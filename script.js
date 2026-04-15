@@ -157,3 +157,38 @@ if (heroImg) {
 
 pills.forEach((pill, i) => pill.addEventListener("click", () => switchFlavor(i)));
 
+/* ======================================================
+    CONTACT FORM
+    ====================================================== */
+const contactForm = document.getElementById("contactForm");
+if (contactForm instanceof HTMLFormElement) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!contactForm.reportValidity()) return;
+
+    const formData = new FormData(contactForm);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+    const status = document.getElementById("contactFormStatus");
+
+    if (!name || !email || !message) {
+      if (status) {
+        status.textContent = "Please complete all fields before sending.";
+      }
+      return;
+    }
+
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nWhat can we build together?\n${message}`
+    );
+
+    if (status) {
+      status.textContent = "Opening your email app...";
+    }
+
+    window.location.href = `mailto:hello@nicgibson.com?subject=${subject}&body=${body}`;
+  });
+}
+

@@ -366,10 +366,46 @@
           <span>No spam — only real conversations</span>
         </div>
       </div>
-      <div class="nl-form">
-        <input type="email" class="nl-input" placeholder="you@email.com" autocomplete="email" />
-        <button type="button" class="nl-btn">Send note →</button>
-      </div>
+      <form class="nl-form" id="contactForm" novalidate>
+        <div class="nl-field">
+          <label class="nl-label" for="contactName">Name</label>
+          <input
+            id="contactName"
+            name="name"
+            type="text"
+            class="nl-input"
+            placeholder="Your name"
+            autocomplete="name"
+            required
+          />
+        </div>
+        <div class="nl-field">
+          <label class="nl-label" for="contactEmail">Email</label>
+          <input
+            id="contactEmail"
+            name="email"
+            type="email"
+            class="nl-input"
+            placeholder="you@email.com"
+            autocomplete="email"
+            required
+          />
+        </div>
+        <div class="nl-field">
+          <label class="nl-label" for="contactMessage">What can we build together?</label>
+          <textarea
+            id="contactMessage"
+            name="message"
+            class="nl-textarea"
+            rows="4"
+            placeholder="Tell me about your project, timeline, and goals."
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="nl-btn">Send note →</button>
+        <p class="nl-form-note">This opens your email app with your message pre-filled.</p>
+        <p class="nl-form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>

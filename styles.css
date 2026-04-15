@@ -1057,22 +1057,22 @@ a.card-btn {
 }
 
 .nl-form {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 .nl-input {
-  flex: 1;
-  min-width: 180px;
+  width: 100%;
   padding: 14px 20px;
-  border-radius: 100px;
+  border-radius: 14px;
   border: 1px solid var(--rule);
   background: rgba(255, 255, 255, 0.6);
   color: var(--ink);
   font-family: "Space Mono", monospace;
   font-size: 0.82rem;
   outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .nl-input::placeholder {
@@ -1081,6 +1081,58 @@ a.card-btn {
 
 .nl-input:focus {
   border-color: var(--ink-muted);
+  box-shadow: 0 0 0 3px rgba(18, 18, 18, 0.08);
+}
+
+.nl-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nl-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-family: "Space Mono", monospace;
+}
+
+.nl-textarea {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--ink);
+  font-family: "Space Mono", monospace;
+  font-size: 0.82rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  min-height: 120px;
+  resize: vertical;
+}
+
+.nl-textarea::placeholder {
+  color: var(--ink-faint);
+}
+
+.nl-textarea:focus {
+  border-color: var(--ink-muted);
+  box-shadow: 0 0 0 3px rgba(18, 18, 18, 0.08);
+}
+
+.nl-form-note {
+  margin: -2px 0 0;
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+}
+
+.nl-form-status {
+  margin: 0;
+  min-height: 1.2em;
+  font-size: 0.72rem;
+  color: var(--ink-muted);
 }
 
 .nl-btn {
@@ -1095,11 +1147,17 @@ a.card-btn {
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
   white-space: nowrap;
+  justify-self: start;
 }
 
 .nl-btn:hover {
   background: #222;
   transform: translateY(-2px);
+}
+
+.nl-btn:focus-visible {
+  outline: 2px solid var(--ink-muted);
+  outline-offset: 2px;
 }
 
 .lifestyle {
