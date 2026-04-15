@@ -126,6 +126,30 @@ if (track && dotsWrap) {
 }
 
 /* ======================================================
+    MOBILE IN-VIEW SERVICE CARD MOTION
+    ====================================================== */
+const serviceCards = Array.from(document.querySelectorAll(".ingredients-grid .ing-card"));
+if ("IntersectionObserver" in window && serviceCards.length > 0) {
+  const serviceCardObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-inview");
+        } else {
+          entry.target.classList.remove("is-inview");
+        }
+      });
+    },
+    {
+      threshold: 0.55,
+      rootMargin: "-4% 0px -8% 0px",
+    }
+  );
+
+  serviceCards.forEach((card) => serviceCardObserver.observe(card));
+}
+
+/* ======================================================
      HERO FLAVOR SWITCHER
      ====================================================== */
 const heroImg = document.getElementById("heroShakeImg");
