@@ -188,7 +188,7 @@ if (contactForm instanceof HTMLFormElement) {
       status.textContent = "Opening your email app...";
     }
 
-    window.location.href = `mailto:hello@nicgibson.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:hello@nic-gibson.com?subject=${subject}&body=${body}`;
   });
 }
 
