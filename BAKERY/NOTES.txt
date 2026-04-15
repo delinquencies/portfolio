@@ -1,0 +1,6 @@
+/* NOTES */
+
+Scroll snapping is funny on the contact section for mobile.
+The footer (site credits) will not show on mobile, will not appear in frame. HMM.
+
+Touch button to close cart needs to be bigger.

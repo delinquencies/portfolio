@@ -1,0 +1,204 @@
+<!-- index.html (updated) -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dulce Lulú</title>
+  <link rel="preload" as="image" href="bakery-bg.png" />
+  <link rel="preload" as="image" href="lulu.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAV (fixed) placed first in DOM for better a11y order -->
+  <nav class="nav" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo-small" aria-label="Inicio">
+        <img src="lulu.png" alt="Dulce Lulú" />
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">
+        Menú
+      </button>
+
+      <ul id="nav-menu" class="nav-menu" hidden>
+        <li><a href="#about">Sobre mí</a></li>
+        <li><a href="#shop">Productos</a></li>
+        <li><a href="#gallery">Galería</a></li>
+        <li><a href="#contact">Contacto</a></li>
+       
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home" class="hero section" aria-label="Inicio">
+    <div class="section-inner">
+      <img src="lulu.png" alt="Dulce Lulú" class="hero-logo" width="600" height="240">
+      <h1>Bienvenidos a Dulce Lulú</h1>
+      <p>Deliciosos postres venezolanos con un toque elegante y tierno.</p>
+    </div>
+  </section>
+
+  <!-- MAIN content with snap -->
+  <main class="snapper">
+<section id="about" class="section" aria-labelledby="about-h">
+  <div class="section-inner">
+    <div class="section-header"><h2 id="about-h">Sobre mí</h2></div>
+    <p><strong>Hola, soy Luisa — La Dulce Lulú!</strong> Me encanta crear postres venezolanos con un toque elegante y tierno, combinando sabores tradicionales con presentaciones modernas para deleitar a todos.</p>
+  </div>
+</section>
+
+
+ <section id="shop" class="section" aria-labelledby="shop-h">
+  <div class="section-inner">
+    <div class="section-header"><h2 id="shop-h">Productos</h2></div>
+
+    <div id="product-toolbar" class="product-toolbar" hidden>
+      <span class="note">Menú de esta semana</span>
+      
+    </div>
+
+    <div class="carousel-nav" hidden>
+      <button class="car-prev" aria-label="Anterior" type="button">‹</button>
+      <button class="car-next" aria-label="Siguiente" type="button">›</button>
+    </div>
+
+    <div id="product-grid" class="product-grid" aria-live="polite">
+      <noscript>Activa JavaScript para ver el menú de productos.</noscript>
+    </div>
+  </div>
+</section>
+
+   <section id="gallery" class="section" aria-labelledby="gallery-h">
+  <div class="section-inner">
+    <div class="section-header"><h2 id="gallery-h">Galería</h2></div>
+
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- 12 dummy thumbs; replace src/data-full with your images -->
+      <a class="g-item" href="#" data-full="gal_01.jpg"><img src="gal_01.jpg" alt="Postre 1"></a>
+      <a class="g-item" href="#" data-full="gal_02.jpg"><img src="gal_02.jpg" alt="Postre 2"></a>
+      <a class="g-item" href="#" data-full="gal_03.jpg"><img src="gal_03.jpg" alt="Postre 3"></a>
+      <a class="g-item" href="#" data-full="gal_04.jpg"><img src="gal_04.jpg" alt="Postre 4"></a>
+      <a class="g-item" href="#" data-full="gal_05.jpg"><img src="gal_05.jpg" alt="Postre 5"></a>
+      <a class="g-item" href="#" data-full="gal_06.jpg"><img src="gal_06.jpg" alt="Postre 6"></a>
+      <a class="g-item" href="#" data-full="gal_07.jpg"><img src="gal_07.jpg" alt="Postre 7"></a>
+      <a class="g-item" href="#" data-full="gal_08.jpg"><img src="gal_08.jpg" alt="Postre 8"></a>
+      <a class="g-item" href="#" data-full="gal_09.jpg"><img src="gal_09.jpg" alt="Postre 9"></a>
+      <a class="g-item" href="#" data-full="gal_10.jpg"><img src="gal_10.jpg" alt="Postre 10"></a>
+      <a class="g-item" href="#" data-full="gal_11.jpg"><img src="gal_11.jpg" alt="Postre 11"></a>
+      <a class="g-item" href="#" data-full="gal_12.jpg"><img src="gal_12.jpg" alt="Postre 12"></a>
+    </div>
+  </div>
+</section>
+
+  <section id="contact" class="section" aria-labelledby="contact-h">
+  <div class="section-inner">
+    <div class="section-header"><h2 id="contact-h">Contacto</h2></div>
+
+    <div class="contact-wrap">
+      <!-- Map (left on desktop, stacked on mobile) -->
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps?q=Caracas%2C%20Venezuela&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+          aria-label="Ubicación de Dulce Lulú">
+        </iframe>
+      </div>
+
+      <!-- Brand contact form (right) -->
+      <form id="contact-form" class="contact-form" action="#" method="post" novalidate>
+        <p class="contact-intro">¿Tienes un encargo o una pregunta? ¡Escríbeme!</p>
+        <div class="row">
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" required placeholder="Tu nombre" />
+        </div>
+        <div class="row">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="tucorreo@ejemplo.com" />
+        </div>
+        <div class="row">
+          <label for="phone">Teléfono <span class="muted">(opcional)</span></label>
+          <input id="phone" name="phone" type="tel" placeholder="(---) --- ----" />
+        </div>
+        <div class="row">
+          <label for="msg">Mensaje</label>
+          <textarea id="msg" name="msg" rows="4" required placeholder="Cuéntame qué te gustaría…"></textarea>
+        </div>
+        <button class="btn-submit" type="submit">Enviar ✉️</button>
+        <p class="form-note">Respuesta típica: 1–2 días hábiles.</p>
+        <p class="form-success" hidden>¡Gracias! Te responderé muy pronto. 🍰</p>
+      </form>
+    </div>
+  </div>
+</section>
+    
+    
+  </main>
+  
+<button class="cart-fab" aria-label="Abrir carrito" title="Carrito">🛒</button>
+<div class="cart-overlay" hidden></div>
+<aside class="cart-drawer" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="cart-title">
+  <header class="cart-head">
+    <h3 id="cart-title">Tu carrito</h3>
+    <button class="cart-close" aria-label="Cerrar carrito">×</button>
+  </header>
+  <div class="cart-items" aria-live="polite"></div>
+  <div class="cart-foot">
+    <div class="row"><span>Subtotal</span><strong class="c-subtotal">$0.00</strong></div>
+    <div class="row"><span>Impuesto (8.25%)</span><strong class="c-tax">$0.00</strong></div>
+    <div class="row total"><span>Total</span><strong class="c-total">$0.00</strong></div>
+    <button class="btn-checkout" type="button">Checkout ✨</button>
+  </div>
+</aside>
+
+<!-- Simple checkout modal placeholder -->
+<div class="modal-overlay" hidden></div>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="co-title" hidden>
+  <div class="modal-card">
+    <header class="modal-head">
+      <h3 id="co-title">Checkout</h3>
+      <button class="modal-close" aria-label="Cerrar">×</button>
+    </header>
+    <div class="modal-body">
+      <p>Aquí conectaremos Stripe u otro método de pago.</p>
+      <p>Mientras tanto, deja tus datos de contacto y te escribimos 👋</p>
+    </div>
+    <footer class="modal-foot">
+      <button class="modal-close btn-secondary" type="button">Cerrar</button>
+    </footer>
+  </div>
+</div>
+
+
+<!-- index.html (scripts section only: replace the single script tag) -->
+  <!-- Back-to-top FAB -->
+  <button class="to-top" hidden aria-label="Volver arriba">↑</button>
+
+  <!-- JS: split into small files, all deferred -->
+  <script src="nav.js" defer></script>
+  <script src="products.js" defer></script>
+  <script src="cart.js" defer></script>
+  <script src="gallery.js" defer></script>
+  <script src="contact.js" defer></script>
+
+<div class="glb-overlay" hidden></div>
+<div class="glb-viewer" hidden role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button class="glb-close" aria-label="Cerrar">×</button>
+  <img class="glb-img" alt="">
+  <button class="glb-prev" aria-label="Anterior">‹</button>
+  <button class="glb-next" aria-label="Siguiente">›</button>
+</div>
+
+<!-- Real site footer that can be snapped to and is announced correctly -->
+<footer id="credits" class="section section-compact site-credits" aria-label="Créditos del sitio">
+  <p>© 2025 <span class="brand">Dulce Lulú</span> — Diseño por <a href="#">washbear 🦝</a></p>
+</footer>
+
+
+</body>
+</html>
