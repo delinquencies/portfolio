@@ -64,6 +64,7 @@ if (track && dotsWrap) {
     current = Math.max(0, Math.min(total - 1, index));
     baseOffset = -(current * cardWidth());
     applyTranslate(baseOffset, true);
+    cards.forEach((card, i) => card.classList.toggle("is-active", i === current));
     dotsWrap
       .querySelectorAll(".slider-dot")
       .forEach((d, i) => d.classList.toggle("active", i === current));
@@ -120,6 +121,7 @@ if (track && dotsWrap) {
     if (e.key === "ArrowLeft") goTo(current - 1);
   });
 
+  goTo(0);
   window.addEventListener("resize", () => goTo(current));
 }
 
@@ -188,7 +190,7 @@ if (contactForm instanceof HTMLFormElement) {
       status.textContent = "Opening your email app...";
     }
 
-    window.location.href = `mailto:hello@nicgibson.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:hello@nic-gibson.com?subject=${subject}&body=${body}`;
   });
 }
 
