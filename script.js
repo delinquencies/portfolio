@@ -188,7 +188,10 @@ pills.forEach((pill, i) => pill.addEventListener("click", () => switchFlavor(i))
     ====================================================== */
 const contactForm = document.getElementById("contactForm");
 if (contactForm instanceof HTMLFormElement) {
-  contactForm.addEventListener("submit", (event) => {
+  const status = document.getElementById("contactFormStatus");
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!contactForm.reportValidity()) return;
 
@@ -196,7 +199,6 @@ if (contactForm instanceof HTMLFormElement) {
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
-    const status = document.getElementById("contactFormStatus");
 
     if (!name || !email || !message) {
       if (status) {
@@ -205,16 +207,44 @@ if (contactForm instanceof HTMLFormElement) {
       return;
     }
 
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nWhat can we build together?\n${message}`
-    );
-
-    if (status) {
-      status.textContent = "Opening your email app...";
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Sending...";
     }
 
-    window.location.href = `mailto:hello@nic-gibson.com?subject=${subject}&body=${body}`;
+    if (status) {
+      status.textContent = "Sending your message...";
+    }
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submit request failed");
+      }
+
+      if (status) {
+        status.textContent = "Thanks — your message has been sent.";
+      }
+
+      contactForm.reset();
+    } catch (error) {
+      if (status) {
+        status.textContent =
+          "Message couldn't be sent right now. Please email hello@nic-gibson.com.";
+      }
+    } finally {
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Send note →";
+      }
+    }
   });
 }
 

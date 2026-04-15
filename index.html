@@ -345,7 +345,15 @@
           <span>No fluff — clear scope, practical strategy, and accountable delivery</span>
         </div>
       </div>
-      <form class="nl-form" id="contactForm" novalidate>
+      <form
+        class="nl-form"
+        id="contactForm"
+        action="https://formsubmit.co/ajax/hello@nic-gibson.com"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="New inquiry from nic-gibson.com" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
         <div class="nl-field">
           <label class="nl-label" for="contactName">Name</label>
           <input
@@ -382,7 +390,7 @@
           ></textarea>
         </div>
         <button type="submit" class="nl-btn">Send note →</button>
-        <p class="nl-form-note">Submitting opens your email app with your project details pre-filled.</p>
+        <p class="nl-form-note">Messages are sent directly to hello@nic-gibson.com.</p>
         <p class="nl-form-status" id="contactFormStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
